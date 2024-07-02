@@ -33,7 +33,7 @@ let mongoUrlDockerCompose = "mongodb://admin:password@mongodb";
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
-let databaseName = "my-db";
+let databaseName = "users";
 
 app.post('/update-profile', function (req, res) {
   let userObj = req.body;
@@ -41,7 +41,7 @@ app.post('/update-profile', function (req, res) {
   MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
-    let db = client.db('my-db');
+    let db = client.db('users');
     userObj['userid'] = 1;
 
     let myquery = { userid: 1 };
