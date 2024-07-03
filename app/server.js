@@ -41,7 +41,7 @@ app.post('/update-profile', function (req, res) {
   MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
-    let db = client.db('users');
+    let db = client.db(databaseName);
     userObj['userid'] = 1;
 
     let myquery = { userid: 1 };
